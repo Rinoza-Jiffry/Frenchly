@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  --background: #06111e;
+  --foreground: #e8f4f0;
+  --teal: #00c9a7;
+  --coral: #ff6b4a;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 15% 85%, rgba(0, 201, 167, 0.09) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 15%, rgba(255, 107, 74, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 105%, rgba(0, 80, 160, 0.18) 0%, transparent 50%),
+    linear-gradient(180deg, #030d1a 0%, #06111e 60%, #04151f 100%);
+  color: var(--foreground);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00c9a7 0%, #00e5c3 40%, #ff6b4a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-glass {
+  background: rgba(0, 201, 167, 0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 201, 167, 0.12);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00c9a7, #00a88c);
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(0, 201, 167, 0.35);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 201, 167, 0.1);
+  border-color: rgba(0, 201, 167, 0.25);
+}
+
+.pulse-recording {
+  animation: pulse-red 1.5s infinite;
+}
+
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+}
+
+.typing-dots::after {
+  content: '...';
+  animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60%, 100% { content: '...'; }
+}
+
+/* Gentle floating animation for decorative elements */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(var(--rot, 0deg)); }
+  50% { transform: translateY(-14px) rotate(var(--rot, 0deg)); }
+}
+
+@keyframes float-medium {
+  0%, 100% { transform: translateY(0px) rotate(var(--rot, 0deg)); }
+  50% { transform: translateY(-9px) rotate(var(--rot, 0deg)); }
+}
+
+.deco-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+.deco-float-medium {
+  animation: float-medium 5s ease-in-out infinite;
+}
+
+/* Shimmer for wave SVG */
+@keyframes wave-drift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.wave-drift {
+  animation: wave-drift 18s linear infinite;
+}
